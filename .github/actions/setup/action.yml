@@ -4,6 +4,10 @@ description: Setup the environment
 runs:
   using: composite
   steps:
+    - name: Setup zip
+      if: matrix.os == 'windows-2022'
+      uses: milliewalky/setup-7-zip@v1
+
     - name: Install rust toolchain
       uses: dtolnay/rust-toolchain@nightly
 
